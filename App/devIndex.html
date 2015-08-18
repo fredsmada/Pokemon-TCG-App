@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Poke Game</title>
+    <link href="pokeStyle.css" type="text/css" rel="stylesheet" />
+    <!--<script type="text/javascript" src="prototype.s2.min.js"></script>-->
+    <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+  </head>
+  <body>
+  	<div id="battleMat">
+    	<input type="button" id="gameStart" value="Start Game!" />
+    	<div id="enemy">
+        	<div id="prizes">
+            	<div class="enemyCover" style="margin: 9px 0 0 7px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="enemyCover" style="margin: 9px 0 0 113px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="enemyCover" style="margin: 9px 0 0 219px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="enemyCover" style="margin: 149px 0 0 7px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="enemyCover" style="margin: 149px 0 0 113px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="enemyCover" style="margin: 149px 0 0 219px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            </div>
+        	<div id="poke">
+                <div class="active">
+                    	<div class="tool">
+                        </div>
+                </div>
+                <div id="stadium">
+                </div>
+                <div id="supporter">
+                </div>
+                <div class="bench">
+                	<div class="benchPoke">
+                    </div>
+                    <div class="benchPoke">
+                    </div>
+                    <div class="benchPoke">
+                    </div>
+                    <div class="benchPoke">
+                    </div>
+                    <div class="benchPoke">
+                    </div>
+                </div>
+            </div>
+        <div id="enemyDeckArea">
+                <div class="deck">
+                	<img src="Cards/back.gif" class="card" onClick="largeCard()" />
+                    	<div id="deckLeft">
+                        	<span style="color: red; margin: 120px 0 0 5px; position: absolute;"></span>
+                        </div>
+                </div>
+                <div id="discard">
+                </div>
+                <div id="lostZone">
+                	<span style="color: black; font-size: 180%; margin: 25% 25% 0 25%;">Lost Zone</span>
+                </div>
+                <div id="viewCard">
+                    <input type="button" id="viewCardButton" onClick="resetCards()" />
+                </div>
+        </div>
+        <div class="hand">
+            <div class="blackOverlay">
+            </div>
+            <div id="faceDownHand">
+            </div>
+        </div>
+        <div id="enemyActiveHide">
+        </div>
+    </div>
+    <div id="light4" class="whiteContent4">
+    	<div class="inEnemyHand">
+        </div>
+    <input type="hidden" value="Enemy Hand" id="enemyHandButton" onClick="document.getElementById('light4').style.display='block';document.getElementById('fade').style.display='block'" />
+    <a href = "javascript:void(0)" onClick = "document.getElementById('light4').style.display='none';document.getElementById('fade').style.display='none'" class="buttons">Exit Hand</a>
+    </div>
+    <input type="button" value="Show Hand" class="handButton" onClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"/>
+    <div class="whiteContent">
+    </div>
+    <div id="light" class="whiteContent">
+    	<div id="handContainer">
+            <div class="inPlayerHand">
+            </div>
+        </div>
+    <a href = "javascript:void(0)" onClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="buttons" id="exit2">Exit Hand</a>
+    </div>
+    <div id="fade" class="blackOverlay"></div>
+    <div id="viewCard" class="whiteContent">
+    </div>
+    <div id="enemyHand">
+    	<span style="margin: 0 5px;">Enemy hand</span>
+        <span id="handCounter"></span>
+    </div>
+    <div id="attackButton">
+    	<input type="button" class="buttons2" value="Attack" onClick="attack(inPlay7)" />
+    </div>
+    <div id="retreatButton">
+    	<input type="button" class="buttons2" value="Retreat" onClick="" />
+    </div>
+    <div id="usePower">
+    	<input type="button" class="buttons2" value="Use Power" onClick="" />
+    </div>
+        <div id="player">
+            <div id="prizes">
+            	<div class="playerCover" style="margin: 9px 0 0 7px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="playerCover" style="margin: 9px 0 0 113px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="playerCover" style="margin: 9px 0 0 219px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="playerCover" style="margin: 149px 0 0 7px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="playerCover" style="margin: 149px 0 0 113px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            	<div class="playerCover" style="margin: 149px 0 0 219px;">
+                	<img src="Cards/back.gif" class="card" />
+                </div>
+            </div>
+            <div id="poke">
+                <div class="active">
+                    	<div class="tool">
+                        </div>
+                </div>
+                <div id="stadium">
+                </div>
+                <div id="supporter">
+                </div>
+                <div class="bench">
+                    <div class="benchPoke">
+                        <div class="tool">
+                        </div>
+                    </div>
+                    <div class="benchPoke">
+                        <div class="tool">
+                        </div>
+                    </div>
+                    <div class="benchPoke">
+                        <div class="tool">
+                        </div>
+                    </div>
+                    <div class="benchPoke">
+                        <div class="tool">
+                        </div>
+                    </div>
+                    <div class="benchPoke">
+                        <div class="tool">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="playerDeckArea">
+                <div class="deck">
+                	<img src="Cards/ack.gif" class="card" />
+                    	<div id="deckLeft">
+                        	<span style="color: red; margin: 120px 0 0 5px; position: absolute">Cards Left: <span></span></span>
+                        </div>
+                </div>
+                <div id="discard">
+                </div>
+                <div id="lostZone">
+                	<span style="color: black; font-size: 180%; margin: 25% 25% 0 25%;">Lost Zone</span>
+                </div>
+            </div>
+            <div class="hand">
+                <div id="faceDownHand">
+                </div>
+            </div>
+            <div class="pokeAttributes">
+                <div class="damageCounters">
+                	<table id="enemyActiveDamage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="enemyBench1Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="enemyBench2Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="enemyBench3Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="enemyBench4Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="enemyBench5Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerActiveDamage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerBench1Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerBench2Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerBench3Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerBench4Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="playerBench5Damage">
+                    	<tbody>
+                        	<tr>
+                        		<td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="enemyStatus">
+                </div>
+                <div class="playerStatus">
+                <div class="otherTokens">
+                </div>
+            </div>
+            <div class="light2" id="whiteContent2">
+            	<div id="light2" class="whiteContent2">
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons" id="exit">Exit View
+                    </a>          		 
+                </div>
+            </div>
+            <input type="button" id="startButton" onClick="deckPicker();" />
+            <div class="light3" id="whiteContent3">
+            	<div id="light3" class="whiteContent3">
+                	<a href="javascript:void(0)" onClick = "document.getElementById('light3').style.display='none';document.getElementById('fade').style.display='none';deckPickerGrass(grassDeck)" class="buttons" id="grass" style="margin: 1% 8.9%; float:right;">Grass Deck</a>
+                    <a href="javascript:void(0)" onClick = "document.getElementById('light3').style.display='none';document.getElementById('fade').style.display='none';deckPickerFire(fireDeck)" class="buttons" id="fire" style="margin: 1% 8.9%; float:right;">Fire Deck</a>
+                    <a href="javascript:void(0)" onClick = "document.getElementById('light3').style.display='none';document.getElementById('fade').style.display='none';deckPickerWater(waterDeck)" class="buttons" id="water" style="margin: 1% 8.9%; float:right;">Water Deck</a>
+                <h2>Choose A Deck!</h2>
+                </div>
+            </div>
+            <div class="light5" id="whiteContent2">
+            	<div id="light5" class="whiteContent2">
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light5').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons exit3" id="exit3">Exit View
+                    </a>
+                    <div id="buttonAlign">
+                        <a onClick="addToBench()" class="buttons3">Put on Bench</a>
+                        <a onClick="evolve()" class="buttons3">Evolve a Pokemon</a>
+                        <a onClick="attachEnergy()" class="buttons3">Attach as Energy</a>
+                        <a onClick="playTrainer()" class="buttons3">Play Trainer</a>
+                        <a onClick="playSupporter()" class="buttons3">Play Supporter</a>
+                        <a onClick="playStadium()" class="buttons3">Play a Stadium</a>
+                        <a onClick="attachTool()" class="buttons3">Attach Tool</a>
+                        <a onClick="pokemonPowers()" class="buttons3">Use PokePowers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="light6" id="whiteContent3">
+            	<div id="light6" class="whiteContent3">
+                	<div class="inPlayerDeck">
+                    </div>
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light6').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons exit3">Exit View
+                    </a>
+        		</div>
+    		</div>
+            <div class="light7" id="whiteContent3">
+            	<div id="light7" class="whiteContent3">
+                	<div class="enemyDiscardPile">
+                    </div>
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light7').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons exit3">Exit View
+                    </a>
+        		</div>
+    		</div>
+            <div class="light8" id="whiteContent3">
+            	<div id="light8" class="whiteContent3">
+                	<div class="discardPile">
+                    </div>
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light8').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons exit3">Exit View
+                    </a>
+        		</div>
+    		</div>
+            <div class="light9" id="whiteContent3">
+            	<div id="light9" class="whiteContent3">
+                	<div class="attacks">
+                    </div>
+                	<a href = "javascript:void(0)" onClick = "document.getElementById('light9').style.display='none';document.getElementById('fade').style.display='none';removeCard()" class="buttons exit3">Exit View
+                    </a>
+                    <a onClick='betweenTurns("Player")' class="buttons">Cancel Attack</a>
+        		</div>
+    		</div>
+    <input type="button" id="placeActive" onClick="placeActive();" />
+    <input type="button" id="coinFlip" onClick="coinFlipStart();" value="Flip Coin to Continue" />
+    <input type="button" id="playerDeck" onClick="document.getElementById('light6').style.display='block'; document.getElementById('fade').style.display='block';" />
+    <a onClick="playerPopup();" id="popup">On Your Turn</a>
+    <div id="thinking" style="display: none;"><p>Computer is thinking...</p></div>
+  </body>
+  <script type="text/javascript" src="functions.js"></script>
+  <script type="text/javascript" src="attacks.js"></script>
+</html>

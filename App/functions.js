@@ -473,7 +473,6 @@ function checkEnemyBasic(){
 			}
 		}
 	alert("Choose your active Pokemon.");
-	$('.inPlayerHand').empty();
 	for (i=0; i < playerInHand.length; i++){
 		$('.inPlayerHand').append('<img src="Cards/Base_Set/' + playerInHand[i].Card + '" class="card" onClick="setActive(playerInHand[' + i + '])" />');
 	}

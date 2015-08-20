@@ -305,7 +305,6 @@ $(document).ready(function(){
 /* Enemy and player deck counter */
 	setInterval(function(){$('#enemy #deckLeft span').empty(); $('#enemy #deckLeft span').append("Cards Left: "+enemyDeck.length)}, 2000);
 	setInterval(function(){$('#player #deckLeft span span').empty(); $('#player #deckLeft span span').append(playerDeck.length)}, 2000);
-});
 
 /* Set game start and parameters */
 $('#gameStart').click(function(){
@@ -324,7 +323,7 @@ $('#gameStart').click(function(){
 	$(".playerCover, .enemyCover").css("display", "block");
 	checkPlayerBasic();
 });
-
+});
 /* Set starting hand and prizes */
 function checkPlayerBasic(){
 	if (playerInHand[0].Stage == "basic" || playerInHand[1].Stage == "basic" || playerInHand[2].Stage == "basic" || playerInHand[3].Stage == "basic" || playerInHand[4].Stage == "basic" || playerInHand[5].Stage == "basic" || playerInHand[6].Stage == "basic") {
@@ -473,6 +472,7 @@ function checkEnemyBasic(){
 			}
 		}
 	alert("Choose your active Pokemon.");
+	$('.inPlayerHand').empty();
 	for (i=0; i < playerInHand.length; i++){
 		$('.inPlayerHand').append('<img src="Cards/Base_Set/' + playerInHand[i].Card + '" class="card" onClick="setActive(playerInHand[' + i + '])" />');
 	}

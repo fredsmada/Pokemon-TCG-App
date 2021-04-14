@@ -31,6 +31,7 @@ if (turn == "Player"){
 	}
 	betweenTurns('Player');
 } else {
+	
 	for(i=0; i < enemyActiveAttachedEnergy.length; i++){
 		energyTypes.push(enemyActiveAttachedEnergy[i].Type);
 	}
@@ -57,7 +58,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -87,6 +87,7 @@ if (turn == "Player"){
 	}
 	betweenTurns('Player');
 } else {
+	
 	for(i=0; i < enemyActiveAttachedEnergy.length; i++){
 		energyTypes.push(enemyActiveAttachedEnergy[i].Type);
 	}
@@ -118,7 +119,6 @@ if (turn == "Player"){
 		} else {
 			alert("Computer does not have the 3 Psychic energy needed for this attack!");
 		}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 	}
 }
@@ -163,7 +163,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -205,7 +204,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -326,7 +324,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -375,7 +372,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -465,7 +461,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -549,7 +544,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -568,7 +562,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -602,7 +595,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -621,7 +613,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -728,7 +719,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -786,7 +776,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -817,7 +806,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -854,7 +842,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1078,7 +1065,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1115,7 +1101,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1162,7 +1147,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1215,7 +1199,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1264,7 +1247,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1318,7 +1300,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1419,7 +1400,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1453,7 +1433,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1484,7 +1463,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1521,7 +1499,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1580,7 +1557,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1630,7 +1606,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1675,7 +1650,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1706,7 +1680,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1743,7 +1716,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1775,7 +1747,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1821,7 +1792,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1899,7 +1869,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1936,7 +1905,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -1977,7 +1945,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2014,7 +1981,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2103,7 +2069,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2204,7 +2169,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2248,7 +2212,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2286,7 +2249,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2317,7 +2279,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2337,7 +2298,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2369,7 +2329,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2404,7 +2363,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2456,7 +2414,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2509,7 +2466,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2567,7 +2523,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2624,7 +2579,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2681,7 +2635,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2715,7 +2668,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2756,7 +2708,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	psychicEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2805,7 +2756,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2850,7 +2800,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2896,7 +2845,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -2972,7 +2920,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3008,7 +2955,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3067,7 +3013,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3098,7 +3043,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3141,7 +3085,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3263,7 +3206,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3319,7 +3261,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3356,7 +3297,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3434,7 +3374,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3484,7 +3423,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3522,7 +3460,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3576,7 +3513,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fireEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3722,7 +3658,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3775,7 +3710,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3832,7 +3766,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	fightingEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3862,7 +3795,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3914,7 +3846,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3958,7 +3889,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -3999,7 +3929,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4051,7 +3980,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4082,7 +4010,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4134,7 +4061,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4180,7 +4106,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4216,7 +4141,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4320,7 +4244,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	waterEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4372,7 +4295,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	grassEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4423,7 +4345,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }
@@ -4464,7 +4385,6 @@ if (turn == "Player"){
 	} else {
 		alert("Enemy does not have the energy needed to use this attack!");
 	}
-	lightningEnergyAvailable = [];
 	betweenTurns('Enemy');
 }
 }

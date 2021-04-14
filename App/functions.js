@@ -200,10 +200,10 @@ $('#grass, #fire, #water').click(function(){
 	}
 });
 
-/* Randomly choose a deck for enemy */
-var enemyPicker = Array("", grassDeck, fireDeck, waterDeck);
-var enemyDeckRandom = Math.floor((Math.random()*3)+1);
-var enemyDeck = enemyPicker[enemyDeckRandom];
+// Randomly choose a deck for enemy 
+/*var enemyDeckRandom = Math.floor((Math.random()*3)+1);
+var enemyDeck = enemyPicker[enemyDeckRandom];*/
+var enemyDeck = fireDeck;
 
 /* General game and card flow */
 
@@ -315,6 +315,9 @@ $('#gameStart').click(function(){
 	window.playerInHand = new Array(playerDeck[0], playerDeck[1], playerDeck[2], playerDeck[3], playerDeck[4], playerDeck[5], playerDeck[6]);
 	playerDeck.splice(0, 7);
 	shuffleDeck(enemyDeck);
+	enemyDeck[0] = Magmar;
+	enemyDeck[1] = Fire_Energy;
+	enemyDeck[2] = Fire_Energy;
 	window.enemyHand = $('.inenemyHand').append('<img src="Cards/Base_Set/' + enemyDeck[0].Card + '" class="card" onClick="setActive(enemyInHand[0])" /><img src="Cards/Base_Set/' + enemyDeck[1].Card + '" class="card" onClick="setActive(enemyInHand[1])" /><img src="Cards/Base_Set/' + enemyDeck[2].Card + '" class="card" onClick="setActive(enemyInHand[2])" /><img src="Cards/Base_Set/' + enemyDeck[3].Card + '" class="card" onClick="setActive(enemyInHand[3])" /><img src="Cards/Base_Set/' + enemyDeck[4].Card + '" class="card" onClick="setActive(enemyInHand[4])" /><img src="Cards/Base_Set/' + enemyDeck[5].Card + '" class="card" onClick="setActive(enemyInHand[5])" /><img src="Cards/Base_Set/' + enemyDeck[6].Card + '" class="card" onClick="setActive(enemyInHand[6])" />');
 	enemyStartingHand = enemyHand.length;
 	window.enemyInHand = new Array(enemyDeck[0], enemyDeck[1], enemyDeck[2], enemyDeck[3], enemyDeck[4], enemyDeck[5], enemyDeck[6]);
@@ -1375,46 +1378,55 @@ function enemyTurn(enemyPreviousTotal) {
 		tempAttack=reset();
 		if (enemyInPlay7.Attack2 != ""){
 			if ($.inArray(enemyInPlay7.Attack2,attacksEnergy4) != -1 && enemyActiveAttachedEnergy.length >= 4){
-				tempAttack=eval(enemyInPlay7.Attack2);
+				var evaluation = enemyInPlay7.Attack2 + "()";
+				tempAttack=evaluation;
 				console.log("ran energy4 attack2");
-				tempAttack();
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack2,attacksEnergy3) != -1 && enemyActiveAttachedEnergy.length >= 3){
-				tempAttack=eval(enemyInPlay7.Attack2);
+				var evaluation = enemyInPlay7.Attack2 + "()";
+				tempAttack=evaluation;
 				console.log("ran energy3 attack2");
-				tempAttack();
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack2,attacksEnergy2) != -1 && enemyActiveAttachedEnergy.length >= 2){
-				tempAttack=eval(enemyInPlay7.Attack2);
+				var evaluation = enemyInPlay7.Attack2 + "()";
+				tempAttack=evaluation;
 				console.log("ran energy2 attack2");
-				tempAttack();
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack2,attacksEnergy1) != -1 && enemyActiveAttachedEnergy.length >= 1){
-				tempAttack=eval(enemyInPlay7.Attack2);
+				var evaluation = enemyInPlay7.Attack2 + "()";
+				tempAttack=evaluation;
 				console.log("ran energy1 attack2");
-				tempAttack();
+				eval(tempAttack);
 				return;
 			}
-		} else {
+		}
+		if(enemyInPlay7.Attack1 != ""){
 			if ($.inArray(enemyInPlay7.Attack1,attacksEnergy4) != -1 && enemyActiveAttachedEnergy.length >= 4){
-				tempAttack=eval(enemyInPlay7.Attack1);
-					console.log("ran energy4 attack1");
-				tempAttack();
+				var evaluation = enemyInPlay7.Attack1 + "()";
+				tempAttack=evaluation;
+				console.log("ran energy2 attack1");
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack1,attacksEnergy3) != -1 && enemyActiveAttachedEnergy.length >= 3){
-				tempAttack=eval(enemyInPlay7.Attack1);
-					console.log("ran energy3 attack1");
-				tempAttack();
+				var evaluation = enemyInPlay7.Attack1 + "()";
+				tempAttack=evaluation;
+				console.log("ran energy2 attack1");
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack1,attacksEnergy2) != -1 && enemyActiveAttachedEnergy.length >= 2){
-				tempAttack=eval(enemyInPlay7.Attack1);
-					console.log("ran energy2 attack1");
-				tempAttack();
+				var evaluation = enemyInPlay7.Attack1 + "()";
+				tempAttack=evaluation;
+				console.log("ran energy2 attack1");
+				eval(tempAttack);
 				return;
 			}else if ($.inArray(enemyInPlay7.Attack1,attacksEnergy1) != -1 && enemyActiveAttachedEnergy.length >= 1){
-				tempAttack=eval(enemyInPlay7.Attack1);
-					console.log("ran energy1 attack1");
-				tempAttack();
+				var evaluation = enemyInPlay7.Attack1 + "()";
+				tempAttack=evaluation;
+				console.log("ran energy2 attack1");
+				eval(tempAttack);
 				return;
 			}
 		}
@@ -3508,12 +3520,13 @@ function enemyEvolve(card){
 		}
 	} else {
 		alert("That is not a matching evolution card!");
+		reset();
 	}
 	$('.inEnemyHand').empty();
 	for (i=0; i < enemyInHand.length; i++){
 			$('.inEnemyHand').append('<img src="Cards/Base_Set/' + enemyInHand[i].Card + '" class="card" onClick="largeCard(this)" />');
 	}
-	$('.card').attr('onClick', 'largeCard(this)');
+	reset();
 }
 
 // Pop-up available on Player's Turn
@@ -3556,16 +3569,17 @@ function evolve2(card) {
 		$('#exit, #exit2, .exit3').trigger('click');
 		if ($('#player .active .card').length > 0 && inPlay7.Evo <= 0){
 			$('#player .active .card').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay7)');
-		}else if ($('#player .benchPoke:first').length > 0 && inPlay8.Evo <= 0){
+		if ($('#player .benchPoke:first').length > 0 && inPlay8.Evo <= 0){
 			$('#player .benchPoke:first').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay8)');
-		}else if ($('#player .benchPoke:nth-child(2)').length > 0 && inPlay9.Evo <= 0){
+		} if ($('#player .benchPoke:nth-child(2)').length > 0 && inPlay9.Evo <= 0){
 			$('#player .benchPoke:nth-child(2)').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay9)');
-		}else if ($('#player .benchPoke:nth-child(3)').length > 0 && inPlay10.Evo <= 0){
+		} if ($('#player .benchPoke:nth-child(3)').length > 0 && inPlay10.Evo <= 0){
 			$('#player .benchPoke:nth-child(3)').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay10)');
-		}else if ($('#player .benchPoke:nth-child(4)').length > 0 && inPlay11.Evo <= 0){
+		} if ($('#player .benchPoke:nth-child(4)').length > 0 && inPlay11.Evo <= 0){
 			$('#player .benchPoke:nth-child(4)').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay11)');
-		}else if ($('#player .benchPoke:last').length > 0 && inPlay12.Evo <= 0){
+		} if ($('#player .benchPoke:last').length > 0 && inPlay12.Evo <= 0){
 			$('#player .benchPoke:last').attr('onClick', 'evolvePoke(playerInHand[' + index + '], inPlay12)');
+		}
 		} else {
 			alert("You cannot evolve on the first turn or have already evolved that Pokemon this turn!");
 			reset();
@@ -4601,7 +4615,8 @@ function evolvePoke(evo, card){
 	for (i=0; i < playerInHand.length; i++){
 			$('.inPlayerHand').append('<img src="Cards/Base_Set/' + playerInHand[i].Card + '" class="card" onClick="largeCard(this)" />');
 	}
-	$('.card').attr('onClick', 'largeCard(this)');
+	$('#player .benchPoke').attr('onClick', "largeCard(this)");
+	reset();
 }
 
 // Function run when Attach as Energy is clicked
@@ -5107,6 +5122,7 @@ function devolutionSpray(card){
 }
 
 function energyRemoval(card){
+	alert(card.Card);
 	card=card;
 	if (card.Stage != 'energy'){
 		alert("That is not an energy card. Choose another card.");
@@ -5261,6 +5277,7 @@ function pokemonBreeder2(evo, card){
 		source = "Cards/Base_Set/" + inPlay12.Card;
 		spot = $('#player .benchPoke:last');
 	} else {
+		reset();
 	}
 	evo = evo; card = card;
 	index = playerInHand.indexOf(evo);
@@ -6696,6 +6713,7 @@ function attack(card, playerSandAttack, enemySandAttack){
 
 // Function to check weakness and resistance.
 function playerWeakness(type, amount){
+	console.log("running player weakness");
 	if (playerNoDamageFlag == 1){
 		alert("Player's Pokemon takes no damage this turn!");
 		return;
@@ -6704,12 +6722,11 @@ function playerWeakness(type, amount){
 	} else if (inPlay7.Resist == type){
 		amount = amount - 30;
 	}
-	playerActiveDamage = amount;
-	playerDamage();
+	playerActiveDamage = playerActiveDamage + amount;
+	playerDamage(playerActiveDamage, playerBench1Damage, playerBench2Damage, playerBench3Damage, playerBench4Damage, playerBench5Damage);
 }
 
 function enemyWeakness(type, amount){
-	console.log(amount);
 	if (enemyNoDamageFlag == 1){
 		alert("Enemy's Pokemon takes no damage this turn!");
 		return;
@@ -6719,7 +6736,7 @@ function enemyWeakness(type, amount){
 		amount = amount - 30;
 	}
 	enemyActiveDamage = enemyActiveDamage + amount;
-	enemyDamage(enemyActiveDamage);
+	enemyDamage(enemyActiveDamage, enemyBench1Damage, enemyBench2Damage, enemyBench3Damage, enemyBench4Damage, enemyBench5Damage);
 }
 
 //Functions to discard energy on attacks.
@@ -6770,12 +6787,19 @@ function noStatus(player){
 }
 
 function reset(playerInHand) {
-	playerInHand = window.playerInHand;
-	$('.inPlayerHand').empty();
-	for (i=0; i < playerInHand.length; i++){
-		$('.inPlayerHand').append('<img src="Cards/Base_Set/' + playerInHand[i].Card + '" class="card" onClick="largeCard(playerInHand[' + i + '])" />');
+	if(inPlay7 == ''){
+		for(i=1; i <= $('#player .benchPoke img').length; i++){
+			$('#player .benchPoke:nth-child('+(i)+') img').attr('onClick', 'newActive(inPlay'+(i+7)+')');
+			alert("set bench equal to:"+i);
+		}
+	} else {
+		playerInHand = window.playerInHand;
+		$('.inPlayerHand').empty();
+		for (i=0; i < playerInHand.length; i++){
+			$('.inPlayerHand').append('<img src="Cards/Base_Set/' + playerInHand[i].Card + '" class="card" onClick="largeCard(playerInHand[' + i + '])" />');
+		}
+		$('img').attr('onClick', 'largeCard(this)');
 	}
-	$('img').attr('onClick', 'largeCard(this)');
 }
 
 
@@ -6820,6 +6844,7 @@ function convertEnergy(playerActiveAttachedEnergy, enemyActiveAttachedEnergy) {
 }
 , 3000);
 
+/*** This function may not be needed anymore! ***/
 function compareEnergy(energy, attack) {
 	// Try this one to run through array
 	energy = playerActiveEnergy;
@@ -7375,7 +7400,7 @@ function knockoutCheck(){
 	if (playerActiveDamage >= inPlay7.HP){
 		playerDiscardedCards = inPlay7+playerActiveAttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay7+playerActiveAttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay7);
 		if ($('#player .benchPoke').length < 1){
@@ -7383,12 +7408,11 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	} else if (playerBench1Damage >= inPlay8.HP){
 		playerDiscardedCards = inPlay8+playerBench1AttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay8+playerBench1AttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay8);
 		if ($('#player .benchPoke').length < 1){
@@ -7396,12 +7420,11 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	} else if (playerBench2Damage >= inPlay9.HP){
 		playerDiscardedCards = inPlay9+playerBench2AttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay9+playerBench2AttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay9);
 		if ($('#player .benchPoke').length < 1){
@@ -7409,12 +7432,11 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	} else if (playerBench3Damage >= inPlay10.HP){
 		playerDiscardedCards = inPlay10+playerBench3AttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay10+playerBench3AttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay10);
 		if ($('#player .benchPoke').length < 1){
@@ -7422,12 +7444,11 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	} else if (playerBench4Damage >= inPlay11.HP){
 		playerDiscardedCards = inPlay11+playerBench4AttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay11+playerBench4AttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay11);
 		if ($('#player .benchPoke').length < 1){
@@ -7435,12 +7456,11 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	} else if (playerBench5Damage >= inPlay12.HP){
 		playerDiscardedCards = inPlay12+playerBench5AttachedEnergy;
 		playerDiscardPile.splice(0, 0, inPlay12+playerBench5AttachedEnergy);
-		$('#playerActiveDamage').empty();
+		$('#playerActiveDamage td').empty();
 		$('.playerStatus').empty();
 		knockoutPokemon('Enemy', inPlay12);
 		if ($('#player .benchPoke').length < 1){
@@ -7448,8 +7468,7 @@ function knockoutCheck(){
 			endGame();
 		}
 		alert("Choose your new Active Pokemon.");
-		$('#player .active').empty();
-		$('#player .benchPoke img').attr('onClick', 'newActive(card)');
+		selectActive();
 	}
 	if (enemyActiveDamage >= enemyInPlay7.HP){
 		enemyDiscardedCards = enemyInPlay7+enemyActiveAttachedEnergy;
@@ -7537,6 +7556,7 @@ function knockoutPokemon(player){
 		alert("You have knocked out the opponent's Pokemon! You get a Prize card!");
 		takePrize("Player",inPlay1);
 	} else if (player == "Enemy") {
+		inPlay7 = '';
 		alert("Your active Pokemon is Knocked Out! Opponent gets a prize card.");
 		if (enemyInPlay1!=''){
 			card = enemyInPlay1;
@@ -7570,6 +7590,20 @@ function knockoutPokemon(player){
 			$('#enemy .enemyCover:last').remove();
 		}
 	}
+}
+
+function selectActive(card){
+	console.log(inPlay7);
+	if($('#player .benchPoke img').length < 1){
+		endGame();
+	}
+	$('#player .active img').remove();
+	for(i=1; i < 12; i++){
+		if($('#player .active .energy'+i).length > 0){
+			$('#player .active .energy'+i).remove();
+		}
+	}
+	//newActive(inPlay7);
 }
 
 function takePrize(player, card){
@@ -7617,43 +7651,53 @@ function takePrize(player, card){
 }
 
 function newActive(card){
-	alert(card.Card);
 	if (card.Card == inPlay8.Card){
+		console.log("replacing active");
 		inPlay7 = inPlay8;
 		inPlay8 = '';
 		$('#player .active img').remove();
-		$('#player .active').append($('#player .benchPoke:first img'));
+		$('#player .active').append($('#player .benchPoke:first').html());
 		$('#player .benchPoke:first img').remove();
 		playerActiveDamage = playerBench1Damage;
 		playerBench1Damage = 0;
+		$('.playerStatus').empty();
+		reset();
 	} else if (card.Card == inPlay9.Card){
 		inPlay7 = inPlay9;
 		inPlay9 = '';
 		$('#player .active img').remove();
-		$('#player .active').append($('#player .benchPoke:nth-child(2) img'));
+		$('#player .active').append($('#player .benchPoke:nth-child(2)').html());
 		playerActiveDamage = playerBench2Damage;
 		playerBench2Damage = 0;
+		$('.playerStatus').empty();
+		reset();
 	} else if (card.Card == inPlay10.Card){
 		inPlay7 = inPlay10;
 		inPlay10 = '';
 		$('#player .active img').remove();
-		$('#player .active').append($('#player .benchPoke:nth-child(3) img'));
+		$('#player .active').append($('#player .benchPoke:nth-child(3)').html());
 		playerActiveDamage = playerBench3Damage;
 		playerBench3Damage = 0;
+		$('.playerStatus').empty();
+		reset();
 	} else if (card.Card == inPlay11.Card){
 		inPlay7 = inPlay11;
 		inPlay11 = '';
 		$('#player .active img').remove();
-		$('#player .active').append($('#player .benchPoke:nth-child(4) img'));
+		$('#player .active').append($('#player .benchPoke:nth-child(4)').html());
 		playerActiveDamage = playerBench4Damage;
 		playerBench4Damage = 0;
+		$('.playerStatus').empty();
+		reset();
 	} else if (card.Card == inPlay12.Card){
 		inPlay7 = inPlay12;
 		inPlay12 = '';
 		$('#player .active img').remove();
-		$('#player .active').append($('#player .benchPoke:last img'));
+		$('#player .active').append($('#player .benchPoke:last').html());
 		playerActiveDamage = playerBench5Damage;
 		playerBench5Damage = 0;
+		$('.playerStatus').empty();
+		reset();
 	}
 }
 
